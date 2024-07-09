@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file>heads/head1.jpg</file>
+        <file>heads/head2.jpg</file>
+        <file>heads/head3.jpg</file>
+        <file>heads/head4.jpg</file>
+        <file>heads/head5.jpg</file>
+        <file>heads/head6.jpg</file>
+        <file>heads/head7.jpg</file>
+        <file>heads/head8.jpg</file>
+        <file>heads/head9.jpg</file>
+        <file>heads/head10.jpg</file>
+        <file>heads/head11.jpg</file>
+        <file>heads/head12.jpg</file>
+        <file>heads/head13.jpg</file>
+        <file>heads/head14.jpg</file>
+        <file>heads/head15.jpg</file>
+        <file>heads/head16.jpg</file>
+        <file>heads/head17.jpg</file>
+        <file>heads/head18.jpg</file>
+        <file>heads/head19.jpg</file>
+        <file>heads/head20.jpg</file>
+        <file>heads/head21.jpg</file>
+        <file>heads/head22.jpg</file>
+        <file>heads/head23.jpg</file>
+        <file>heads/head24.jpg</file>
+        <file>heads/head25.jpg</file>
+        <file>heads/head26.jpg</file>
+        <file>heads/head27.jpg</file>
+        <file>heads/head28.jpg</file>
+        <file>heads/head29.jpg</file>
+        <file>heads/head30.jpg</file>
+        <file>heads/head31.jpg</file>
+        <file>heads/head32.jpg</file>
+        <file>heads/red.png</file>
+    </qresource>
+</RCC>
