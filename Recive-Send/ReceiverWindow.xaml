@@ -1,0 +1,12 @@
+<Window x:Class="StringGeneratorApp.ReceiverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Receiver" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="String Receiver" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox Name="ReceivedStringTextBox" Margin="10" Height="30" IsReadOnly="True"/>
+            <Button Name="ReceiveButton" Content="Receive" Margin="10" Click="ReceiveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
