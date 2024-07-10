@@ -1,7 +1,10 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <chrono>
 using namespace std;
+
+// 全局变量
 bool gameOver;
 const int width = 20;
 const int height = 20;
@@ -10,6 +13,8 @@ int tailX[100], tailY[100];
 int nTail;
 enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN };
 eDirecton dir;
+
+// 设置初始状态
 void Setup()
 {
     gameOver = false;
@@ -20,9 +25,11 @@ void Setup()
     fruitY = rand() % height;
     score = 0;
 }
+
+// 绘制游戏场景
 void Draw()
 {
-    system("cls"); //system("clear");
+    system("cls"); // 清屏
     for (int i = 0; i < width + 2; i++)
         cout << "#";
     cout << endl;
@@ -52,7 +59,6 @@ void Draw()
                     cout << " ";
             }
 
-
             if (j == width - 1)
                 cout << "#";
         }
@@ -64,6 +70,8 @@ void Draw()
     cout << endl;
     cout << "Score:" << score << endl;
 }
+
+// 处理用户输入
 void Input()
 {
     if (_kbhit())
@@ -88,6 +96,8 @@ void Input()
         }
     }
 }
+
+// 更新游戏逻辑
 void Logic()
 {
     int prevX = tailX[0];
@@ -121,8 +131,6 @@ void Logic()
     default:
         break;
     }
-    //if (x > width || x < 0 || y > height || y < 0)
-    //  gameOver = true;
     if (x >= width) x = 0; else if (x < 0) x = width - 1;
     if (y >= height) y = 0; else if (y < 0) y = height - 1;
 
@@ -138,15 +146,25 @@ void Logic()
         nTail++;
     }
 }
+
 int main()
 {
     Setup();
+    auto lastTime = chrono::high_resolution_clock::now();
+    const int frameDuration = 150; // 每帧持续时间（毫秒）
+
     while (!gameOver)
     {
-        Draw();
-        Input();
-        Logic();
-        Sleep(10); //sleep(10);
+        auto currentTime = chrono::high_resolution_clock::now();
+        auto elapsedTime = chrono::duration_cast<chrono::milliseconds>(currentTime - lastTime).count();
+
+        if (elapsedTime >= frameDuration)
+        {
+            lastTime = currentTime;
+            Draw();
+            Input();
+            Logic();
+        }
     }
     return 0;
 }
