@@ -16,16 +16,19 @@
 ### 4. LAN ChatRoom
 一个局域网聊天室应用，支持多用户实时聊天。
 
-### 5. Recive-Send
+### 5. RacerCar
+一个简单的二维赛车小游戏
+
+### 6. Recive-Send
 一个用于接收和发送数据的简单应用。
 
-### 6. RotatingShapes（PEGTinker平台）
+### 7. RotatingShapes（PEGTinker平台）
 基于PEGTinker平台的旋转图形展示程序。
 
-### 7. Snake_game
+### 8. Snake_game
 贪吃蛇游戏。
 
-### 8. Tetris
+### 9. Tetris
 俄罗斯方块游戏。
 
 ## 技术栈
