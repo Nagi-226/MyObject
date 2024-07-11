@@ -39,6 +39,7 @@
 
 ## 注意
 有些项目（比如赛车与FPS小游戏项目）需要引用到同一个二维开发引擎头文件：olcConsoleGameEngine.h，这个引擎并不是我本人的作品，来源于youtube博主Javidx9，我在他的二维引擎基础上进行其他项目的开发创作。
+注明“PEGTinker平台”的项目是需要去https://pgetinker.com/这个链接上的二维引擎运行的
 
 ## 联系方式
 
