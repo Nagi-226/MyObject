@@ -262,7 +262,7 @@ int main()
 {
 	// Use olcConsoleGameEngine derived app
 	OneLoneCoder_FormulaOLC game;
-	game.ConstructConsole(160, 100, 8, 8);
+	game.ConstructConsole(120, 100, 16, 16);
 	game.Start();
 
 	return 0;
