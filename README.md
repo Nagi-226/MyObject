@@ -16,16 +16,19 @@
 ### 4. LAN ChatRoom
 一个局域网聊天室应用，支持多用户实时聊天。
 
-### 5. Recive-Send
+### 5. RacerCar
+一个简单的二维赛车小游戏
+
+### 6. Recive-Send
 一个用于接收和发送数据的简单应用。
 
-### 6. RotatingShapes（PEGTinker平台）
+### 7. RotatingShapes（PEGTinker平台）
 基于PEGTinker平台的旋转图形展示程序。
 
-### 7. Snake_game
+### 8. Snake_game
 贪吃蛇游戏。
 
-### 8. Tetris
+### 9. Tetris
 俄罗斯方块游戏。
 
 ## 技术栈
@@ -33,10 +36,6 @@
 - **C++**: 主要编程语言，用于大多数项目。
 - **C**: 用于部分项目的开发。
 - **QMake**: 项目构建工具。
-
-## 如何运行
-
-每个项目都有独立的README文件，里面包含了如何运行和使用该项目的详细说明。请参考各项目文件夹中的README文件。
 
 ## 注意
 有些项目（比如赛车与FPS小游戏项目）需要引用到同一个二维开发引擎头文件：olcConsoleGameEngine.h，这个引擎并不是我本人的作品，来源于youtube博主Javidx9，我在他的二维引擎基础上进行其他项目的开发创作。
