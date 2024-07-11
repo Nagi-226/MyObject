@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwidget.o
+./release\multhreadserver.o
+./release\soketthread.o
+./release\msgbuilder.o
+./release\CJsonObject.o
+./release\cJSON.o
+./release\userdao.o
+./release\moc_mainwidget.o
+./release\moc_multhreadserver.o
+./release\moc_soketthread.o
+);

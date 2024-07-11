@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\mainwidget.o
+./debug\multhreadserver.o
+./debug\soketthread.o
+./debug\msgbuilder.o
+./debug\CJsonObject.o
+./debug\cJSON.o
+./debug\userdao.o
+./debug\moc_mainwidget.o
+./debug\moc_multhreadserver.o
+./debug\moc_soketthread.o
+);
