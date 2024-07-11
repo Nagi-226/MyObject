@@ -142,12 +142,13 @@ protected:
             int nFloor = ScreenHeight() - nCeiling;
 
             short nShade = ' ';
+            short nShadeColor = FG_WHITE;
 
-            if (fDistanceToWall <= fDepth / 4.0f)       nShade = 0x2588;
-            else if (fDistanceToWall < fDepth / 3.0f)   nShade = 0x2593;
-            else if (fDistanceToWall < fDepth / 2.0f)   nShade = 0x2592;
-            else if (fDistanceToWall < fDepth)          nShade = 0x2591;
-            else                                        nShade = ' ';
+            if (fDistanceToWall <= fDepth / 4.0f) { nShade = 0x2588; nShadeColor = FG_RED; }
+            else if (fDistanceToWall < fDepth / 3.0f) { nShade = 0x2593; nShadeColor = FG_RED; }
+            else if (fDistanceToWall < fDepth / 2.0f) { nShade = 0x2592; nShadeColor = FG_RED; }
+            else if (fDistanceToWall < fDepth) { nShade = 0x2591; nShadeColor = FG_RED; }
+            else { nShade = ' '; nShadeColor = FG_WHITE; }
 
             if (bBoundary)       nShade = ' ';
 
@@ -156,17 +157,20 @@ protected:
                 if (y <= nCeiling)
                     Draw(x, y, ' ');
                 else if (y > nCeiling && y <= nFloor)
-                    Draw(x, y, nShade);
+                    Draw(x, y, nShade, nShadeColor);
                 else
                 {
                     // 根据距离去渲染地板
                     float b = 1.0f - (((float)y - ScreenHeight() / 2.0f) / ((float)ScreenHeight() / 2.0f));
-                    if (b < 0.25)      nShade = '#';
-                    else if (b < 0.5)  nShade = 'x';
-                    else if (b < 0.75) nShade = '.';
-                    else if (b < 0.9)  nShade = '-';
-                    else               nShade = ' ';
-                    Draw(x, y, nShade);
+                    short nFloorShade = ' ';
+                    short nFloorColor = FG_WHITE;
+
+                    if (b < 0.25) { nFloorShade = '#'; nFloorColor = FG_GREY; }
+                    else if (b < 0.5) { nFloorShade = 'x'; nFloorColor = FG_GREY; }
+                    else if (b < 0.75) { nFloorShade = '.'; nFloorColor = FG_GREY; }
+                    else if (b < 0.9) { nFloorShade = '-'; nFloorColor = FG_GREY; }
+                    else { nFloorShade = ' '; nFloorColor = FG_WHITE; }
+                    Draw(x, y, nFloorShade, nFloorColor);
                 }
             }
         }
