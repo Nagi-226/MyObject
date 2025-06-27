@@ -22,13 +22,16 @@
 ### 6. Recive-Send
 一个用于接收和发送数据的简单应用。
 
-### 7. RotatingShapes（PEGTinker平台）
+### 7. Retro FPS
+上述复古第一人称射击游戏的成品
+
+### 8. RotatingShapes（PEGTinker平台）
 基于PEGTinker平台的旋转图形展示程序。
 
-### 8. Snake_game
+### 9. Snake_game
 贪吃蛇游戏。
 
-### 9. Tetris
+### 10. Tetris
 俄罗斯方块游戏。
 
 ## 技术栈
