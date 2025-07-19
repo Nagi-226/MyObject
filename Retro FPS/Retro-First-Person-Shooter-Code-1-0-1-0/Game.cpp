@@ -275,11 +275,11 @@ void Game::drawOverlayInstructions(SDL_Renderer* renderer) {
     SDL_RenderFillRect(renderer, &rectBackground);
 
     //Draw the text.
-    drawText(renderer, 55, 35, 1, "W, A, S, D:  Movement");
-    drawText(renderer, 55, 50, 1, "Move Mouse:  Turn");
-    drawText(renderer, 55, 65, 1, "Left Click:  Hold to Shoot");
-    drawText(renderer, 55, 80, 1, "ESC:         Quit");
-    drawText(renderer, 72, 100, 1, "-Click to Start-");
+    drawText(renderer, 55, 35, 1, "W, A, S, D:  移动");
+    drawText(renderer, 55, 50, 1, "移动鼠标:  转动视角");
+    drawText(renderer, 55, 65, 1, "鼠标左键:  射击");
+    drawText(renderer, 55, 80, 1, "ESC:         退出");
+    drawText(renderer, 72, 100, 1, "-点击开始-");
 }
 
 

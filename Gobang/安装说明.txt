@@ -1,0 +1,67 @@
+五子棋游戏安装说明
+====================
+
+您的系统上似乎没有安装C++编译器，因此无法直接编译游戏。请按照以下步骤安装编译器并编译游戏：
+
+方法一：安装Visual Studio（推荐）
+-----------------------------
+
+1. 下载并安装Visual Studio Community（免费版本）：
+   https://visualstudio.microsoft.com/vs/community/
+
+2. 在安装过程中，确保选择"使用C++的桌面开发"工作负载
+
+3. 安装完成后，打开"x64 Native Tools Command Prompt for VS"命令提示符
+
+4. 导航到游戏目录：
+   cd C:\Users\FJL03\Desktop\MyObject\Gobang
+
+5. 编译游戏：
+   cl /EHsc /std:c++14 Gobang.cpp /link user32.lib gdi32.lib
+
+6. 运行游戏：
+   Gobang.exe
+
+
+方法二：安装MinGW-w64
+-------------------
+
+1. 下载MinGW-w64安装程序：
+   https://www.mingw-w64.org/downloads/
+
+2. 安装MinGW-w64，确保将其添加到系统PATH中
+
+3. 打开命令提示符，导航到游戏目录：
+   cd C:\Users\FJL03\Desktop\MyObject\Gobang
+
+4. 编译游戏：
+   g++ -std=c++11 Gobang.cpp -o Gobang.exe
+
+5. 运行游戏：
+   Gobang.exe
+
+
+方法三：使用在线编译器（临时解决方案）
+------------------------------
+
+如果您不想安装编译器，可以使用在线编译器：
+
+1. 访问 https://www.onlinegdb.com/
+
+2. 选择语言为C++
+
+3. 将Gobang.cpp文件的内容复制粘贴到编辑器中
+
+4. 点击"Run"按钮编译和运行游戏
+
+注意：在线编译器可能无法完全支持游戏的所有功能，特别是控制台颜色和键盘输入可能会有差异。
+
+
+游戏说明
+========
+
+- 游戏开始时，您可以选择难度级别（简单、中等、困难）
+- 您可以选择执黑棋（先手）或白棋（后手）
+- 轮到您时，输入落子位置的行号和列号（例如：8 8）
+- 五子连珠者获胜
+- 游戏结束后，按任意键重新开始，按ESC键退出游戏
