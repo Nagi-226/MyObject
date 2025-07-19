@@ -16,28 +16,25 @@
 ### 4. Gobang
 一个指令控制台端的五子棋小游戏
 
-### 5. Gomoku
-一个基于HTML制作的五子棋小游戏成品（更美观）
-
-### 6. LAN ChatRoom
+### 5. LAN ChatRoom
 一个局域网聊天室应用，支持多用户实时聊天。
 
-### 7. RacerCar
+### 6. RacerCar
 一个简单的二维赛车小游戏
 
-### 8. Recive-Send
+### 7. Recive-Send
 一个用于接收和发送数据的简单应用。
 
-### 9. Retro FPS
+### 8. Retro FPS
 上述复古第一人称射击游戏的成品
 
-### 10. RotatingShapes（PEGTinker平台）
+### 9. RotatingShapes（PEGTinker平台）
 基于PEGTinker平台的旋转图形展示程序。
 
-### 11. Snake_game
+### 10. Snake_game
 贪吃蛇游戏。
 
-### 12. Tetris
+### 11. Tetris
 俄罗斯方块游戏。
 
 ## 技术栈
