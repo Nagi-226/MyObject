@@ -1,0 +1,57 @@
+# 编译输出目录
+build/
+build_mingw/
+bin/
+out/
+debug/
+release/
+Debug/
+Release/
+x64/
+Win32/
+
+# 编译生成的文件
+*.exe
+*.obj
+*.o
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.ipdb
+*.iobj
+
+# Visual Studio文件
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# CMake生成的文件
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+
+# IDE配置文件
+.idea/
+.vscode/
+*.swp
+*~
+
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
