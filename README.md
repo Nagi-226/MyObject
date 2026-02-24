@@ -40,7 +40,7 @@
 ### 12. Tetris
 俄罗斯方块游戏。
 
-### 12. SuperCaculator
+### 13. SuperCaculator
 一个超级计算机项目，支持微积分和求偏导运算
 ## 技术栈
 
