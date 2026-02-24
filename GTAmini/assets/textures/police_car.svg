@@ -1,0 +1,28 @@
+<svg width="64" height="32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 警车 - 俯视图 -->
+  <rect x="8" y="2" width="48" height="28" rx="6" ry="6" fill="#2c3e50" stroke="#2c3e50" stroke-width="2"/>
+  
+  <!-- 车窗 -->
+  <rect x="14" y="8" width="36" height="16" rx="2" ry="2" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="32" y1="8" x2="32" y2="24" stroke="#bdc3c7" stroke-width="1"/>
+  
+  <!-- 警车标志 -->
+  <rect x="20" y="2" width="24" height="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  
+  <!-- 警灯 -->
+  <rect x="26" y="0" width="5" height="2" fill="#e74c3c" rx="1" ry="1"/>
+  <rect x="33" y="0" width="5" height="2" fill="#3498db" rx="1" ry="1"/>
+  
+  <!-- 车轮 -->
+  <circle cx="16" cy="30" r="5" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  <circle cx="48" cy="30" r="5" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+  
+  <!-- 车灯 -->
+  <rect x="4" y="6" width="4" height="4" rx="1" ry="1" fill="#f1c40f"/>
+  <rect x="4" y="22" width="4" height="4" rx="1" ry="1" fill="#f1c40f"/>
+  <rect x="56" y="6" width="4" height="4" rx="1" ry="1" fill="#e74c3c"/>
+  <rect x="56" y="22" width="4" height="4" rx="1" ry="1" fill="#e74c3c"/>
+  
+  <!-- 警车标识 -->
+  <text x="24" y="20" font-family="Arial" font-size="6" fill="white" text-anchor="middle">POLICE</text>
+</svg>

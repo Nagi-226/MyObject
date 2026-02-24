@@ -1,0 +1,19 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+  <!-- 帮派成员NPC - 俯视图 -->
+  <circle cx="12" cy="12" r="10" fill="#8e44ad" stroke="#6c3483" stroke-width="1"/>
+  
+  <!-- 头部 -->
+  <circle cx="12" cy="9" r="4" fill="#f5b041" stroke="#e67e22" stroke-width="1"/>
+  
+  <!-- 墨镜 -->
+  <rect x="9" y="8" width="6" height="1.5" rx="0.5" ry="0.5" fill="#2c3e50"/>
+  
+  <!-- 身体指示方向 -->
+  <line x1="12" y1="12" x2="12" y2="18" stroke="#6c3483" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 手臂 -->
+  <line x1="8" y1="12" x2="16" y2="12" stroke="#6c3483" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- 武器 -->
+  <rect x="16" y="11" width="4" height="1" fill="#2c3e50"/>
+</svg>

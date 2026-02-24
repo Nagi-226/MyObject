@@ -1,0 +1,10 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+  <!-- 玩家角色 - 俯视图 -->
+  <circle cx="16" cy="16" r="14" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <!-- 头部 -->
+  <circle cx="16" cy="12" r="6" fill="#f1c40f" stroke="#f39c12" stroke-width="1"/>
+  <!-- 身体指示方向 -->
+  <line x1="16" y1="16" x2="16" y2="26" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/>
+  <!-- 手臂 -->
+  <line x1="10" y1="16" x2="22" y2="16" stroke="#2c3e50" stroke-width="2" stroke-linecap="round"/>
+</svg>

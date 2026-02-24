@@ -1,0 +1,13 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+  <!-- 平民NPC - 俯视图 -->
+  <circle cx="12" cy="12" r="10" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  
+  <!-- 头部 -->
+  <circle cx="12" cy="9" r="4" fill="#f5b041" stroke="#e67e22" stroke-width="1"/>
+  
+  <!-- 身体指示方向 -->
+  <line x1="12" y1="12" x2="12" y2="18" stroke="#7f8c8d" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- 手臂 -->
+  <line x1="8" y1="12" x2="16" y2="12" stroke="#7f8c8d" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

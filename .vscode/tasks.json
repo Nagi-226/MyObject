@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: Configure & Build FPS (default)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", "FPS",
+        "-B", "build/FPS",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "Configure FPS project"
+    },
+    {
+      "label": "CMake: Build FPS (Ninja/MinGW)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build", "build/FPS",
+        "--config", "Debug"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "dependsOn": [
+        "CMake: Configure & Build FPS (default)"
+      ],
+      "detail": "Build FPS target in build/FPS"
+    },
+    {
+      "label": "Build FPS (single step)",
+      "type": "shell",
+      "command": "cmake -S FPS -B build/FPS -DCMAKE_BUILD_TYPE=Debug && cmake --build build/FPS --config Debug",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "detail": "One-step configure + build."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+  <!-- 建筑物瓦片 - 俯视图 -->
+  <rect width="64" height="64" fill="#7f8c8d"/>
+  
+  <!-- 建筑物窗户 -->
+  <rect x="8" y="8" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="24" y="8" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="40" y="8" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  
+  <rect x="8" y="24" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="24" y="24" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="40" y="24" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  
+  <rect x="8" y="40" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="24" y="40" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <rect x="40" y="40" width="10" height="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+</svg>

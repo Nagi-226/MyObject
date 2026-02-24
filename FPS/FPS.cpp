@@ -18,7 +18,25 @@ private:
     struct Bullet
     {
         float x, y, angle;
+        float distanceTraveled;
+        float maxRange;
+        bool active;
+        
+        Bullet(float startX, float startY, float startAngle, float range)
+            : x(startX), y(startY), angle(startAngle), distanceTraveled(0.0f), maxRange(range), active(true) {}
     };
+
+    // Weapon system variables
+    int nMagazineSize = 30;           // 弹夹容量
+    int nCurrentAmmo = 30;            // 当前弹夹内弹药数
+    int nTotalAmmo = 90;              // 总弹药数（不包括弹夹内的）
+    float fFireRate = 0.1f;           // 射击间隔（秒）
+    float fTimeSinceLastShot = 0.0f;  // 距离上次射击的时间
+    float fReloadTime = 2.0f;         // 装弹时间（秒）
+    float fReloadTimer = 0.0f;        // 装弹计时器
+    bool bIsReloading = false;        // 是否正在装弹
+    float fBulletSpeed = 15.0f;       // 子弹速度（独立于玩家移动速度）
+    float fBulletMaxRange = 20.0f;    // 子弹最大射程
 
     int nMapWidth = 16;
     int nMapHeight = 16;
@@ -90,39 +108,124 @@ protected:
         if (GetKey(L'D').bHeld)
             fPlayerA += (fSpeed * 0.75f) * fElapsedTime;
 
-        // Handle shooting
-        if (GetKey(L' ').bPressed)
+        // Update reload timer
+        if (bIsReloading)
         {
-            Bullet b = { fPlayerX, fPlayerY, fPlayerA };
-            bullets.push_back(b);
+            fReloadTimer += fElapsedTime;
+            if (fReloadTimer >= fReloadTime)
+            {
+                // Reload complete
+                int ammoNeeded = nMagazineSize - nCurrentAmmo;
+                if (ammoNeeded > 0 && nTotalAmmo > 0)
+                {
+                    int ammoToReload = std::min(ammoNeeded, nTotalAmmo);
+                    nCurrentAmmo += ammoToReload;
+                    nTotalAmmo -= ammoToReload;
+                }
+                bIsReloading = false;
+                fReloadTimer = 0.0f;
+            }
+        }
+
+        // Update fire rate timer
+        fTimeSinceLastShot += fElapsedTime;
+
+        // Handle reload input
+        if (GetKey(L'R').bPressed && !bIsReloading && nCurrentAmmo < nMagazineSize && nTotalAmmo > 0)
+        {
+            bIsReloading = true;
+            fReloadTimer = 0.0f;
+        }
+
+        // Handle shooting (spacebar or left mouse button)
+        bool bCanShoot = !bIsReloading && nCurrentAmmo > 0 && fTimeSinceLastShot >= fFireRate;
+        if ((GetKey(L' ').bHeld || GetMouse(0).bHeld) && bCanShoot)
+        {
+            // Fire bullet
+            bullets.push_back(Bullet(fPlayerX, fPlayerY, fPlayerA, fBulletMaxRange));
+            nCurrentAmmo--;
+            fTimeSinceLastShot = 0.0f;
         }
 
         // Update bullets
         for (auto& b : bullets)
         {
-            b.x += cosf(b.angle) * fSpeed * fElapsedTime;
-            b.y += sinf(b.angle) * fSpeed * fElapsedTime;
+            if (!b.active) continue;
 
-            // Check for collision with walls
-            if (map[(int)b.y * nMapWidth + (int)b.x] == '#')
+            // Calculate movement distance
+            float fMoveDistance = fBulletSpeed * fElapsedTime;
+            float fNewX = b.x + cosf(b.angle) * fMoveDistance;
+            float fNewY = b.y + sinf(b.angle) * fMoveDistance;
+            
+            // Update distance traveled
+            b.distanceTraveled += fMoveDistance;
+
+            // Check if bullet exceeded max range
+            if (b.distanceTraveled >= b.maxRange)
             {
-                b.x = -1; // Mark bullet for removal
+                b.active = false;
+                continue;
             }
 
-            // Check for collision with enemies
+            // Check for collision with walls using raycast
+            bool bHitWall = false;
+            float fStepSize = 0.05f;
+            float fCheckDistance = 0.0f;
+            float fCheckX = b.x;
+            float fCheckY = b.y;
+            
+            while (fCheckDistance < fMoveDistance && !bHitWall)
+            {
+                fCheckDistance += fStepSize;
+                fCheckX = b.x + cosf(b.angle) * fCheckDistance;
+                fCheckY = b.y + sinf(b.angle) * fCheckDistance;
+                
+                int nCheckX = (int)fCheckX;
+                int nCheckY = (int)fCheckY;
+                
+                if (nCheckX < 0 || nCheckX >= nMapWidth || nCheckY < 0 || nCheckY >= nMapHeight)
+                {
+                    bHitWall = true;
+                }
+                else if (map[nCheckY * nMapWidth + nCheckX] == '#')
+                {
+                    bHitWall = true;
+                    // Set bullet position to collision point
+                    fNewX = fCheckX - cosf(b.angle) * fStepSize;
+                    fNewY = fCheckY - sinf(b.angle) * fStepSize;
+                }
+            }
+
+            if (bHitWall)
+            {
+                b.active = false;
+                continue;
+            }
+
+            // Update bullet position
+            b.x = fNewX;
+            b.y = fNewY;
+
+            // Check for collision with enemies (more precise)
             for (auto& e : enemies)
             {
-                if (sqrt((b.x - e.x) * (b.x - e.x) + (b.y - e.y) * (b.y - e.y)) < 0.5f)
+                if (e.x < 0) continue; // Skip removed enemies
+                
+                float fDistToEnemy = sqrt((b.x - e.x) * (b.x - e.x) + (b.y - e.y) * (b.y - e.y));
+                if (fDistToEnemy < 0.5f)
                 {
                     e.x = -1; // Mark enemy for removal
-                    b.x = -1; // Mark bullet for removal
+                    b.active = false;
+                    break;
                 }
             }
         }
 
-        // Remove bullets and enemies that are marked for removal
-        bullets.erase(std::remove_if(bullets.begin(), bullets.end(), [](Bullet& b) { return b.x == -1; }), bullets.end());
-        enemies.erase(std::remove_if(enemies.begin(), enemies.end(), [](Enemy& e) { return e.x == -1; }), enemies.end());
+        // Remove inactive bullets and dead enemies
+        bullets.erase(std::remove_if(bullets.begin(), bullets.end(), 
+            [](const Bullet& b) { return !b.active; }), bullets.end());
+        enemies.erase(std::remove_if(enemies.begin(), enemies.end(), 
+            [](const Enemy& e) { return e.x < 0; }), enemies.end());
 
         // Render the scene
         for (int x = 0; x < ScreenWidth(); x++)
@@ -271,6 +374,8 @@ protected:
         // Render bullets
         for (auto& b : bullets)
         {
+            if (!b.active) continue;
+            
             float fVecX = b.x - fPlayerX;
             float fVecY = b.y - fPlayerY;
             float fDistanceFromPlayer = sqrt(fVecX * fVecX + fVecY * fVecY);
@@ -306,6 +411,34 @@ protected:
                 }
             }
         }
+
+        // Render HUD - Ammo display
+        std::wstring sAmmoText = L"Ammo: " + std::to_wstring(nCurrentAmmo) + L" / " + std::to_wstring(nTotalAmmo);
+        for (size_t i = 0; i < sAmmoText.length() && i < ScreenWidth(); i++)
+        {
+            Draw(i, ScreenHeight() - 1, sAmmoText[i], FG_GREEN);
+        }
+
+        // Render reload indicator
+        if (bIsReloading)
+        {
+            float fReloadProgress = fReloadTimer / fReloadTime;
+            std::wstring sReloadText = L"Reloading... " + std::to_wstring((int)(fReloadProgress * 100)) + L"%";
+            int nTextStartX = ScreenWidth() / 2 - sReloadText.length() / 2;
+            for (size_t i = 0; i < sReloadText.length() && (nTextStartX + i) < ScreenWidth(); i++)
+            {
+                Draw(nTextStartX + i, ScreenHeight() / 2, sReloadText[i], FG_YELLOW);
+            }
+        }
+
+        // Render crosshair
+        int nCrosshairX = ScreenWidth() / 2;
+        int nCrosshairY = ScreenHeight() / 2;
+        Draw(nCrosshairX, nCrosshairY, '+', FG_WHITE);
+        Draw(nCrosshairX - 1, nCrosshairY, '-', FG_WHITE);
+        Draw(nCrosshairX + 1, nCrosshairY, '-', FG_WHITE);
+        Draw(nCrosshairX, nCrosshairY - 1, '|', FG_WHITE);
+        Draw(nCrosshairX, nCrosshairY + 1, '|', FG_WHITE);
 
         return true;
     }

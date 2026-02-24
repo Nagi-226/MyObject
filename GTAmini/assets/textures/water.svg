@@ -1,0 +1,17 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+  <!-- 水域瓦片 - 俯视图 -->
+  <rect width="64" height="64" fill="#3498db"/>
+  
+  <!-- 水波纹 -->
+  <path d="M0,16 Q16,8 32,16 Q48,24 64,16" fill="none" stroke="#2980b9" stroke-width="1">
+    <animate attributeName="d" values="M0,16 Q16,8 32,16 Q48,24 64,16; M0,16 Q16,24 32,16 Q48,8 64,16; M0,16 Q16,8 32,16 Q48,24 64,16" dur="4s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M0,32 Q16,24 32,32 Q48,40 64,32" fill="none" stroke="#2980b9" stroke-width="1">
+    <animate attributeName="d" values="M0,32 Q16,24 32,32 Q48,40 64,32; M0,32 Q16,40 32,32 Q48,24 64,32; M0,32 Q16,24 32,32 Q48,40 64,32" dur="5s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M0,48 Q16,40 32,48 Q48,56 64,48" fill="none" stroke="#2980b9" stroke-width="1">
+    <animate attributeName="d" values="M0,48 Q16,40 32,48 Q48,56 64,48; M0,48 Q16,56 32,48 Q48,40 64,48; M0,48 Q16,40 32,48 Q48,56 64,48" dur="6s" repeatCount="indefinite"/>
+  </path>
+</svg>

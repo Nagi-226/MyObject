@@ -1,0 +1,13 @@
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+  <!-- 十字路口瓦片 - 俯视图 -->
+  <rect width="64" height="64" fill="#34495e"/>
+  
+  <!-- 道路标记 - 水平线 -->
+  <rect x="0" y="30" width="64" height="4" fill="#f1c40f"/>
+  
+  <!-- 道路标记 - 垂直线 -->
+  <rect x="30" y="0" width="4" height="64" fill="#f1c40f"/>
+  
+  <!-- 中心点 -->
+  <rect x="30" y="30" width="4" height="4" fill="#34495e"/>
+</svg>

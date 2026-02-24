@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <cstring>
 using namespace std;
 
 #include "olcConsoleGameEngine.h"

@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug FPS (CMake build/FPS)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "preLaunchTask": "Build FPS (single step)",
+      "program": "${workspaceFolder}/build/FPS/FPS.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/FPS",
+      "environment": [],
+      "console": "externalTerminal"
+    },
+    {
+      "name": "Debug FPS (MSVC Debug dir)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "preLaunchTask": "Build FPS (single step)",
+      "program": "${workspaceFolder}/build/FPS/Debug/FPS.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/FPS",
+      "environment": [],
+      "console": "externalTerminal"
+    }
+  ]
+}

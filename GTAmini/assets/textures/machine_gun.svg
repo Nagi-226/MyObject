@@ -1,0 +1,11 @@
+<svg width="32" height="12" xmlns="http://www.w3.org/2000/svg">
+  <!-- 机枪 - 俯视图 -->
+  <rect x="4" y="4" width="24" height="4" fill="#2c3e50" stroke="#2c3e50" stroke-width="1"/>
+  <rect x="2" y="5" width="2" height="2" fill="#2c3e50" stroke="#2c3e50" stroke-width="1"/>
+  <rect x="0" y="3" width="4" height="6" fill="#7f8c8d" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="28" y="4.5" width="4" height="3" fill="#7f8c8d" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="10" y="2" width="12" height="2" fill="#7f8c8d" stroke="#7f8c8d" stroke-width="1"/>
+  <rect x="16" y="8" width="6" height="3" fill="#7f8c8d" stroke="#7f8c8d" stroke-width="1"/>
+  <!-- 弹夹 -->
+  <rect x="12" y="8" width="3" height="4" fill="#34495e" stroke="#2c3e50" stroke-width="1"/>
+</svg>
